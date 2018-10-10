@@ -7,11 +7,13 @@ Author:
 Project Outline:
 
     Zoho API
+        - Zoho Books (coming soon)
+        - Zoho Campaigns (coming soon)
         - Zoho CRM
-            - 2.0
-            - 1.0
-        - Zoho Desk
-        - Zoho Recruit
+            - 2.0 (in-progress)
+            - 1.0 (in-progress)
+        - Zoho Desk (coming soon)
+        - Zoho Recruit (coming soon)
 
 Git Ignored Files:
 
