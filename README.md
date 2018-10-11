@@ -4,9 +4,9 @@ Author:
 
     Scott Minter
 
-Project Outline:
+Project Outline and Goals:
 
-    Zoho API
+    Python
         - Zoho Books (coming soon)
         - Zoho Campaigns (coming soon)
         - Zoho CRM
@@ -14,16 +14,10 @@ Project Outline:
             - 1.0 (in-progress)
         - Zoho Desk (coming soon)
         - Zoho Recruit (coming soon)
-
-Project Goals:
     
-    Verbose
-        - Python (in-progress)
-    
-    Basic
-        - PHP (coming soon)
-        - Node.js (coming soon)
-        - Java (coming soon)
+    PHP (coming soon)
+    Node.js (coming soon)
+    Java (coming soon)
 
 Git Ignored Files:
 
