@@ -15,6 +15,16 @@ Project Outline:
         - Zoho Desk (coming soon)
         - Zoho Recruit (coming soon)
 
+Project Goals:
+    
+    Verbose
+        - Python (in-progress)
+    
+    Basic
+        - PHP (coming soon)
+        - Node.js (coming soon)
+        - Java (coming soon)
+
 Git Ignored Files:
 
     *.pyc
