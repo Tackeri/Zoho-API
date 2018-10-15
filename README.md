@@ -13,6 +13,7 @@ Project Outline and Goals:
             - 2.0 (in-progress)
             - 1.0 (in-progress)
         - Zoho Desk (coming soon)
+        - Zoho Projects (in-progress)
         - Zoho Recruit (coming soon)
     
     PHP (coming soon)
@@ -27,7 +28,7 @@ Git Ignored Files:
 
 Local File Requirements:
 
-    Zoho_CRM_API:
+    Zoho_CRM_API and Zoho_Projects_API:
         1.0/credentials.py
         2.0/Authentication/credentials.py
         2.0/Authentication/grant_token.txt
