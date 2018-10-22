@@ -15,20 +15,9 @@ headers = {'Authorization': token}
 body = {
     "data": [
        {
-            "Company": "Trinidad Productions",
+            "id": 3490721000000524023,
             "Last_Name": "Trinidad",
-            "First_Name": "Paul",
-            "Email": "paul@alpha.com",
-            "State": "Texas",
-            "Lead_Source:": "API"
-        },
-       {
-            "Company": "NewCompany",
-            "Last_Name": "Me",
-            "First_Name": "You",
-            "Email": "lead@beta.com",
-            "State": "Texas",
-            "Lead_Source:": "API"
+            "Website": "www.paultron.com"
         }
     ]
 }
@@ -40,7 +29,7 @@ print ('URL:', url)
 print ('Head:', headers)
 
 # Call API
-response = requests.post(url, headers=headers, json=body)
+response = requests.put(url, headers=headers, json=body)
 
 # Print Output Data
 jsonData = json.loads(response.text)
@@ -48,3 +37,4 @@ data = jsonData['data']
 print ('')
 print ('-- Response --')
 print (json.dumps(data, sort_keys=True, indent=4))
+# print (jsonData)

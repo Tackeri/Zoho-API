@@ -21,8 +21,8 @@ module = 'Accounts'
 
 
 def getRecords(module):
-    url = 'https://www.zohoapis.com/crm/v2/{module_id}?per_page=3'
-    # url = 'https://www.zohoapis.com/crm/v2/{module_id}/3490721000000519039'
+    # url = 'https://www.zohoapis.com/crm/v2/{module_id}?per_page=3'
+    url = 'https://www.zohoapis.com/crm/v2/{module_id}/3490721000000519039'
     # url = 'https://www.zohoapis.com/crm/v2/{module_id}/3490721000000593031/Custom_List_History'
     # url = 'https://www.zohoapis.com/crm/v2/{module_id}/search?per_page=3&criteria=(Owner.name:starts_with:Scott)'
     # url = 'https://www.zohoapis.com/crm/v2/{module_id}/search?per_page=3&criteria=(Owner.id:equals:3490721000000175021)'
@@ -32,10 +32,10 @@ def getRecords(module):
     # url = 'https://www.zohoapis.com/crm/v2/{module_id}/search?per_page=3&criteria=(Custom_Date:less_than:2018-10-31T15:00:00-05:00)'
     url = url.replace("{module_id}", module)
     headers = {
-        'Authorization': tokens.getAccess(), 
+        'Authorization': tokens.getAccess(),
         # 'If-Modified-Since': '2018-10-02T17:38:49-05:00',
         # 'If-Created-Since': '2018-10-22T17:38:49-05:00',
-        }
+    }
 
     print('')
     print(url)
@@ -49,14 +49,8 @@ def getRecords(module):
 
 def printResponse(response, module):
     jsonData = json.loads(response.text)
-    count = jsonData['info']['count']
-    data = jsonData['data']
-    i = 0
-    print(count)
-    while i < count:
-        print('-- ' + module.capitalize() + ' ' + str(i+1) + ' --')
-        print(json.dumps(data[i], sort_keys=True, indent=4))
-        i += 1
+    print(json.dumps(jsonData, sort_keys=True, indent=4))
+    i += 1
 
 
 # Run Program

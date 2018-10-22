@@ -5,7 +5,7 @@ import json
 from Authentication import tokens
 
 # Define URL
-url = 'https://www.zohoapis.com/crm/v2/Leads?'
+url = 'https://www.zohoapis.com/crm/v2/Leads/upsert?duplicate_check_fields=Last_Name'
 
 # Get Token and Headers
 token = tokens.getAccess()
@@ -16,19 +16,12 @@ body = {
     "data": [
        {
             "Company": "Trinidad Productions",
-            "Last_Name": "Trinidad",
+            "Last_Name": "Trini",
             "First_Name": "Paul",
-            "Email": "paul@alpha.com",
+            "Email": "paul@bravo.com",
             "State": "Texas",
-            "Lead_Source:": "API"
-        },
-       {
-            "Company": "NewCompany",
-            "Last_Name": "Me",
-            "First_Name": "You",
-            "Email": "lead@beta.com",
-            "State": "Texas",
-            "Lead_Source:": "API"
+            "Lead_Source:": "API",
+            "Custom_Number": 1
         }
     ]
 }

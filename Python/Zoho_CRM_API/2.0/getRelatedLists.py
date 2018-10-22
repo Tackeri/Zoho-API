@@ -15,15 +15,13 @@ from Resources import statusCodes
 import requests
 import json
 
-module = 'Accounts'
+module = 'Leads'
 
 # Call the API and Print the Response
 
 
 def getRecords(module):
-    url = 'https://www.zohoapis.com/crm/v2/{module_id}?per_page=3'
-    # url = 'https://www.zohoapis.com/crm/v2/{module_id}/3490721000000519039'
-    # url = 'https://www.zohoapis.com/crm/v2/{module_id}/3490721000000593031/Custom_List_History'
+    url = 'https://www.zohoapis.com/crm/v2/settings/related_lists?module={module_id}'
     # url = 'https://www.zohoapis.com/crm/v2/{module_id}/search?per_page=3&criteria=(Owner.name:starts_with:Scott)'
     # url = 'https://www.zohoapis.com/crm/v2/{module_id}/search?per_page=3&criteria=(Owner.id:equals:3490721000000175021)'
     # url = 'https://www.zohoapis.com/crm/v2/{module_id}/search?per_page=3&criteria=(Full_Name:equals:Paul Trinidad)'
@@ -34,7 +32,6 @@ def getRecords(module):
     headers = {
         'Authorization': tokens.getAccess(), 
         # 'If-Modified-Since': '2018-10-02T17:38:49-05:00',
-        # 'If-Created-Since': '2018-10-22T17:38:49-05:00',
         }
 
     print('')
@@ -49,8 +46,8 @@ def getRecords(module):
 
 def printResponse(response, module):
     jsonData = json.loads(response.text)
-    count = jsonData['info']['count']
-    data = jsonData['data']
+    data = jsonData['related_lists']
+    count = len(data)
     i = 0
     print(count)
     while i < count:
