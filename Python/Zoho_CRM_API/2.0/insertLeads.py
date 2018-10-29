@@ -5,7 +5,7 @@ import json
 from Authentication import tokens
 
 # Define URL
-url = 'https://www.zohoapis.com/crm/v2/Leads?'
+url = 'https://www.zohoapis.com/crm/v2/Leads?duplicate_fields_check=Email'
 
 # Get Token and Headers
 token = tokens.getAccess()

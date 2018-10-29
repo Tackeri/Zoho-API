@@ -6,13 +6,14 @@ import requests, json
 
 def main():
     # Define Parameters
-    url = 'https://accounts.zoho.com/apiauthtoken/nb/create?SCOPE=ZohoCRM/crmapi&EMAIL_ID={UsernameEmailID}&PASSWORD={Password}&DISPLAY_NAME={ApplicationName}'
+    url = 'https://accounts.zoho.com/apiauthtoken/nb/create?SCOPE={Scope}&EMAIL_ID={UsernameEmailID}&PASSWORD={Password}&DISPLAY_NAME={ApplicationName}'
     email = 'scottdminter@gmail.com'
-    scope = ''
+    scope = 'ZohoCRM/crmapi'
     pw = 'uDBsQRjK9epH'
     display_name = 'MANA - 1.0 Python Testing'
 
 
+    url = url.replace("{Scope}", scope)
     url = url.replace("{UsernameEmailID}", email)
     url = url.replace("{Password}", pw)
     url = url.replace("{ApplicationName}", display_name)

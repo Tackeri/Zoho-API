@@ -23,7 +23,7 @@ module = 'Accounts'
 def getRecords(module):
     url = 'https://www.zohoapis.com/crm/v2/{module_id}?per_page=3'
     # url = 'https://www.zohoapis.com/crm/v2/{module_id}/3490721000000519039'
-    # url = 'https://www.zohoapis.com/crm/v2/{module_id}/3490721000000593031/Custom_List_History'
+    # url = 'https://www.zohoapis.com/crm/v2/{module_id}/3490721000000519039'
     # url = 'https://www.zohoapis.com/crm/v2/{module_id}/search?per_page=3&criteria=(Owner.name:starts_with:Scott)'
     # url = 'https://www.zohoapis.com/crm/v2/{module_id}/search?per_page=3&criteria=(Owner.id:equals:3490721000000175021)'
     # url = 'https://www.zohoapis.com/crm/v2/{module_id}/search?per_page=3&criteria=(Full_Name:equals:Paul Trinidad)'

@@ -15,7 +15,7 @@ from Resources import statusCodes
 import requests
 import json
 
-module = 'Leads'
+module = 'Accounts'
 
 # Call the API and Print the Response
 

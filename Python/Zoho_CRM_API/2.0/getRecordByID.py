@@ -21,15 +21,9 @@ module = 'Accounts'
 
 
 def getRecords(module):
-    # url = 'https://www.zohoapis.com/crm/v2/{module_id}?per_page=3'
-    url = 'https://www.zohoapis.com/crm/v2/{module_id}/3490721000000519039'
-    # url = 'https://www.zohoapis.com/crm/v2/{module_id}/3490721000000593031/Custom_List_History'
-    # url = 'https://www.zohoapis.com/crm/v2/{module_id}/search?per_page=3&criteria=(Owner.name:starts_with:Scott)'
-    # url = 'https://www.zohoapis.com/crm/v2/{module_id}/search?per_page=3&criteria=(Owner.id:equals:3490721000000175021)'
-    # url = 'https://www.zohoapis.com/crm/v2/{module_id}/search?per_page=3&criteria=(Full_Name:equals:Paul Trinidad)'
-    # url = 'https://www.zohoapis.com/crm/v2/{module_id}/search?per_page=3&criteria=(Created_By.id:equals:3490721000000253001)'
-    # url = 'https://www.zohoapis.com/crm/v2/{module_id}/search?per_page=3&criteria=(Custom_Number:greater_than:1)'
-    # url = 'https://www.zohoapis.com/crm/v2/{module_id}/search?per_page=3&criteria=(Custom_Date:less_than:2018-10-31T15:00:00-05:00)'
+    # url = 'https://www.zohoapis.com/crm/v2/{module_id}/3490721000000519039'
+    url = 'https://www.zohoapis.com/crm/v2/{module_id}/3490721000000519039/Custom_List_History'
+    
     url = url.replace("{module_id}", module)
     headers = {
         'Authorization': tokens.getAccess(),
@@ -50,7 +44,6 @@ def getRecords(module):
 def printResponse(response, module):
     jsonData = json.loads(response.text)
     print(json.dumps(jsonData, sort_keys=True, indent=4))
-    i += 1
 
 
 # Run Program

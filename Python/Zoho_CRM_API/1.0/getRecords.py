@@ -17,12 +17,14 @@ import credentials
 module = "Leads"
 
 # Call API
-url = 'https://crm.zoho.com/crm/private/xml/{module}/getRecords?{token}&scope=crmapi&fromIndex=1&toIndex=2'
+url = 'https://crm.zoho.com/crm/private/xml/{module}/getRecords?{token}&scope=crmapi'
 url = url.replace('{module}', module)
 url = url.replace('{token}', credentials.token)
 response = requests.get(url)
 status = response.status_code
 
+print (url)
+print (status)
 
 if (status == 200):
     # Print JSON
