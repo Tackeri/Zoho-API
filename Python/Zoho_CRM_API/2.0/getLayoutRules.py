@@ -15,12 +15,14 @@ from Resources import statusCodes
 import requests, json, os
 
 module = 'Contacts'
+record_id = '3490721000000091033'
 
 # Call the API and Print the Response
 
 def getRecords(module):
-    url = 'https://www.zohoapis.com/crm/v2/settings/layouts?module={module_id}'
+    url = 'https://www.zohoapis.com/crm/v2/settings/layouts/{record_id}/rules?module={module_id}'
     url = url.replace("{module_id}", module)
+    url = url.replace("{record_id}", record_id)
     headers = {
         'Authorization': tokens.getAccess(), 
         }
@@ -46,6 +48,7 @@ def printResponse(response, module):
 response = getRecords(module)
 if response.status_code == 200:
     printResponse(response, module)
+    print (response.status_code)
 else:
     print('')
     print(response.status_code)

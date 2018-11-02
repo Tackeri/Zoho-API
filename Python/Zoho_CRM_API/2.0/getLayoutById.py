@@ -12,18 +12,15 @@ __author__ = 'MinterS'
 
 from Authentication import tokens
 from Resources import statusCodes
-import requests
-import json
+import requests, json, os
 
 module = 'Contacts'
-record_id = 'd123123123'
+record_id = '3490721000000091033'
 
 # Call the API and Print the Response
 
-
 def getRecords(module):
     url = 'https://www.zohoapis.com/crm/v2/settings/layouts/{record_id}?module={module_id}'
-
     url = url.replace("{module_id}", module)
     url = url.replace("{record_id}", record_id)
     headers = {
@@ -39,19 +36,19 @@ def getRecords(module):
     response = requests.get(url, headers=headers)
     return response
 
-
 def printResponse(response, module):
     jsonData = json.loads(response.text)
-    print(json.dumps(jsonData, sort_keys=True, indent=4))
+    # print(json.dumps(jsonData, sort_keys=True, indent=4))
 
-    # outputFile = open("test.json", "w")
-    # json.dump(jsonData, outputFile)
-
+    fileName = 'output_' + os.path.basename(__file__) + '.json'
+    outputFile = open(fileName, "w")
+    json.dump(jsonData, outputFile)
 
 # Run Program
 response = getRecords(module)
 if response.status_code == 200:
     printResponse(response, module)
+    print (response.status_code)
 else:
     print('')
     print(response.status_code)
