@@ -24,6 +24,7 @@ Git Ignored Files:
 
     *.pyc
     *.txt
+    *.json
     credentials.py
 
 Local File Requirements:
