@@ -39,8 +39,8 @@ def getRecords(module):
 def printResponse(response, module):
     jsonData = json.loads(response.text)
     # print(json.dumps(jsonData, sort_keys=True, indent=4))
-
-    fileName = 'output_' + os.path.basename(__file__) + '.json'
+    THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
+    fileName = os.path.join(THIS_FOLDER, 'Output/output_' + os.path.basename(__file__) + '.json')
     outputFile = open(fileName, "w")
     json.dump(jsonData, outputFile)
 
