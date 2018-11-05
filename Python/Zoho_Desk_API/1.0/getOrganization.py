@@ -16,12 +16,13 @@ import requests
 import json
 
 module = 'Portals'
+organizationID = '13123123'
 
 # Call the API and Print the Response
 
 
 def getRecords(module):
-    url = 'https://projectsapi.zoho.com/restapi/portals/'
+    url = 'https://desk.zoho.com/api/v1/organizations'
     headers = {
         'Authorization': tokens.getAccess(),
     }
@@ -39,13 +40,10 @@ def getRecords(module):
 def printResponse(response, module):
     jsonData = json.loads(response.text)
 
-    data = jsonData['portals']
+    data = jsonData
     count = len(data)
     i = 0
-    while i < count:
-        print('-- ' + module.capitalize() + ' ' + str(i+1) + ' --')
-        print(json.dumps(data[i], sort_keys=True, indent=4))
-        i += 1
+    print(json.dumps(data, sort_keys=True, indent=4))
 
 
 # Run Program
