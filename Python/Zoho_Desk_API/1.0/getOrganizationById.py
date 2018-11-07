@@ -1,16 +1,19 @@
 __author__ = 'MinterS'
 
-# Zoho Desk API v1.0 - Get Organizations from Desk
-# This program will fetch the list of Zoho Desk organizations.
+# Zoho Desk API v1.0 - Get Organization By ID
+# This program will fetch the a single Zoho Desk organization.
 
 from Authentication import tokens
 from Resources import statusCodes
 import requests, json
 
+organizationId = '673932772'
+
 # Call the API and Print the Response
 
-def getRecords():
-    url = 'https://desk.zoho.com/api/v1/organizations'
+def getRecords(organizationId):
+    url = 'https://desk.zoho.com/api/v1/organizations/{organization_id}?includeCustomDomain=true'
+    url = url.replace("{organization_id}", organizationId)
     headers = {
         'Authorization': tokens.getAccess(),
     }
@@ -31,7 +34,7 @@ def printResponse(response):
     print(json.dumps(data, sort_keys=True, indent=4))
 
 # Run Program
-response = getRecords()
+response = getRecords(organizationId)
 if response.status_code == 200:
     printResponse(response)
 else:

@@ -7,11 +7,14 @@ from Authentication import tokens
 from Resources import statusCodes
 import requests, json
 
+organizationId = '673932772'
+
 # Call the API and Print the Response
 
-def getRecords():
-    url = 'https://desk.zoho.com/api/v1/organizations'
+def getRecords(organizationId):
+    url = 'https://desk.zoho.com/api/v1/profiles?visible=true'
     headers = {
+        'orgId': organizationId,
         'Authorization': tokens.getAccess(),
     }
     print('')
@@ -31,7 +34,7 @@ def printResponse(response):
     print(json.dumps(data, sort_keys=True, indent=4))
 
 # Run Program
-response = getRecords()
+response = getRecords(organizationId)
 if response.status_code == 200:
     printResponse(response)
 else:
