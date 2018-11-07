@@ -21,9 +21,9 @@
         - Zoho SalesIQ          (coming soon)
         - Zoho Subscriptions    (coming soon)
     
-    PHP (coming soon)
-    Node.js (coming soon)
-    Java (coming soon)
+    PHP         (coming soon)
+    Node.js     (coming soon)
+    Java        (coming soon)
 
 ### Git Ignored Files:
 
