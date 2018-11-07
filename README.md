@@ -12,7 +12,7 @@ Project Outline and Goals:
         - Zoho CRM
             - 2.0 (in-progress)
             - 1.0 (in-progress)
-        - Zoho Desk (coming soon)
+        - Zoho Desk (in-progress)
         - Zoho Projects (in-progress)
         - Zoho Recruit (coming soon)
     
