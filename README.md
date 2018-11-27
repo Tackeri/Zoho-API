@@ -34,7 +34,10 @@
 
 ### Local File Requirements:
 
-    Zoho_CRM_API and Zoho_Projects_API:
+    Zoho_CRM_API:
+        1.0/credentials.py
+
+    Zoho_CRM_API, Zoho_Books_API, and Zoho_Projects_API:
         1.0/credentials.py
         2.0/Authentication/credentials.py
         2.0/Authentication/grant_token.txt
