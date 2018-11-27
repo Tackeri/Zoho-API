@@ -7,7 +7,7 @@
 ### Project Outline and Goals:
 
     Python
-        - Zoho Books            (coming soon)
+        - Zoho Books            (started)
         - Zoho Campaigns        (coming soon)
         - Zoho Creator          (coming soon)
         - Zoho CRM
@@ -16,7 +16,7 @@
         - Zoho Desk             (in-progress)
         - Zoho Inventory        (coming soon)
         - Zoho Invoice          (coming soon)
-        - Zoho Projects         (in-progress)
+        - Zoho Projects         (started)
         - Zoho Recruit          (coming soon)
         - Zoho SalesIQ          (coming soon)
         - Zoho Subscriptions    (coming soon)
