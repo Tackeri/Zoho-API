@@ -5,7 +5,7 @@ __author__ = 'MinterS'
 
 
 from Resources import statusCodes
-import credentials
+from Authentication import tokens
 import requests
 import json
 
@@ -15,14 +15,14 @@ organization_id = '676667077'
 url = 'https://books.zoho.com/api/v3/contacts?organization_id={org_id}&JSONString={body}&per_page=3'
 
 # Prep Token and Headers
-token = credentials.token
+token = tokens.getAccess()
 headers = {'Authorization': token}
 
 # Prep Body
 body = {
-    "contact_name": "Jameson and Friends",
-    "company_name": "Jameson and Friends",
-    "website": "www.gustavo.com",
+    "contact_name": "Harry Corp",
+    "company_name": "Harry Coro",
+    "website": "www.harco.com",
     "contact_type": "customer",
     "is_portal_enabled": False,
     "facebook": "zoho",
