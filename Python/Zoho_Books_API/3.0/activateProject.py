@@ -13,7 +13,7 @@ organization_id = '676667077'
 project_id = '1596844000000211003'
 
 # Define URL
-url = 'https://books.zoho.com/api/v3/projects/{project_id}/inactive?organization_id={org_id}'
+url = 'https://books.zoho.com/api/v3/projects/{project_id}/activate?organization_id={org_id}'
 
 # Prep Token and Headers
 token = tokens.getAccess()
