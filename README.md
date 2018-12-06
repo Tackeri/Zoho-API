@@ -11,18 +11,15 @@
         - Zoho Books
             - 1.0               (started)
             - 3.0               (started)
-  
         - Zoho CRM
             - 1.0               (started)
             - 2.0               (in-progress)
-  
         - Zoho Desk             (in-progress)
-  
         - Zoho Projects         (started)
 
-    PHP         (coming soon)
-    Node.js     (coming soon)
-    Java        (coming soon)
+    PHP         (coming later)
+    Node.js     (coming later)
+    Java        (coming later)
 
 ### Git Ignored Files:
 
@@ -37,10 +34,10 @@
         1.0/credentials.py
 
     Zoho_CRM_API, Zoho_Books_API, and Zoho_Projects_API:
-        2.0/Authentication/credentials.py
-        2.0/Authentication/grant_token.txt
-        2.0/Authentication/access_token.txt
-        2.0/Authentication/refresh_token.txt
+        /Authentication/credentials.py
+        /Authentication/grant_token.txt
+        /Authentication/access_token.txt
+        /Authentication/refresh_token.txt
         
 ### Documentation Links
 
