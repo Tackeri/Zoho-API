@@ -19,7 +19,6 @@ module = 'Portals'
 
 # Call the API and Print the Response
 
-
 def getRecords(module):
     url = 'https://projectsapi.zoho.com/restapi/portals/'
     headers = {
