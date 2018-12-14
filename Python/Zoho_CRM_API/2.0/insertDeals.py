@@ -1,7 +1,7 @@
 __author__ = 'MinterS'
 
 import requests
-import json
+import json, getAuthRefresh
 from Authentication import tokens
 
 # Define URL
@@ -19,7 +19,7 @@ body = {
            "Closing_Date": "2018-10-20",
            "Contact_Name":
            {
-               "id": "3490721000000510031"
+               "id": "3490721000001130143"
            },
            "Stage": "Qualification",
            "Description:": "API"

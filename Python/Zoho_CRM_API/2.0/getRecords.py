@@ -15,14 +15,14 @@ from Resources import statusCodes
 import requests
 import json
 
-module = 'Accounts'
+module = 'Deals'
 
 # Call the API and Print the Response
 
 
 def getRecords(module):
-    url = 'https://www.zohoapis.com/crm/v2/{module_id}?per_page=3'
-    # url = 'https://www.zohoapis.com/crm/v2/{module_id}/3490721000000519039'
+    # url = 'https://www.zohoapis.com/crm/v2/{module_id}?per_page=3'
+    url = 'https://www.zohoapis.com/crm/v2/{module_id}/3490721000001139001/Products'
     # url = 'https://www.zohoapis.com/crm/v2/{module_id}/3490721000000519039'
     # url = 'https://www.zohoapis.com/crm/v2/{module_id}/search?per_page=3&criteria=(Owner.name:starts_with:Scott)'
     # url = 'https://www.zohoapis.com/crm/v2/{module_id}/search?per_page=3&criteria=(Owner.id:equals:3490721000000175021)'

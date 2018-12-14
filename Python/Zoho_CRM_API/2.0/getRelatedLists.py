@@ -13,7 +13,7 @@ __author__ = 'MinterS'
 from Authentication import tokens
 from Resources import statusCodes
 import requests
-import json
+import json, getAuthRefresh
 
 module = 'Accounts'
 
