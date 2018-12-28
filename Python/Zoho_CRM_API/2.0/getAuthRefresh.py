@@ -24,7 +24,7 @@ def getAuthRefresh():
 
     # Print Input Data
     print('')
-    print('---- Request ----')
+    print('---- Token Request ----')
     print('URL:', url)
 
     # Parse Response data
@@ -40,7 +40,7 @@ def getAuthRefresh():
 
     # Print Output Data
     print('')
-    print('---- Response ----')
+    print('---- Token Results ----')
     if error != 'None':
         print('Error:', error)
         print(response)

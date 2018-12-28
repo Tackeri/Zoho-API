@@ -23,7 +23,7 @@ message = statusCodes.statusCode(status)
 
 # Print Input Data
 print ('')
-print ('---- Request ----')
+print ('---- Token Request ----')
 print ('URL:', url)
 
 # Parse Response data
@@ -43,7 +43,7 @@ except:
 
 # Print Output Data
 print ('')
-print ('---- Results ----')
+print ('---- Token Results ----')
 if error != 'None':
     print ('Error:', error)
     print (response)

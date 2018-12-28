@@ -2,3 +2,4 @@
 *.txt
 *.json
 credentials.py
+Output/

@@ -25,6 +25,7 @@
     *.txt
     *.json
     credentials.py
+    Output/
 
 ### Local File Requirements:
 

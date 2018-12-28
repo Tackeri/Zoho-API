@@ -12,10 +12,9 @@ __author__ = 'MinterS'
 
 from Authentication import tokens
 from Resources import statusCodes
-import requests
-import json, getAuthRefresh
+import requests, json, getAuthRefresh
 
-module = 'Accounts'
+module = 'Deals'
 
 # Call the API and Print the Response
 

@@ -12,17 +12,16 @@ __author__ = 'MinterS'
 
 from Authentication import tokens
 from Resources import statusCodes
-import requests
-import json
+import requests, json, getAuthRefresh
 
-module = 'Accounts'
+module = 'Deals'
 
 # Call the API and Print the Response
 
 
 def getRecords(module):
-    # url = 'https://www.zohoapis.com/crm/v2/{module_id}/3490721000000519039'
-    url = 'https://www.zohoapis.com/crm/v2/{module_id}/3490721000000519039/Custom_List_History'
+    url = 'https://www.zohoapis.com/crm/v2/{module_id}/3490721000001172199'
+    # url = 'https://www.zohoapis.com/crm/v2/{module_id}/3490721000000519039/Custom_List_History'
     
     url = url.replace("{module_id}", module)
     headers = {
