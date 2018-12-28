@@ -5,6 +5,7 @@
 
 // Declare Variables
 quote_ID = quoteId.toLong();
+lead_ID = "";
 contact_ID = "";
 account_ID = "";
 
