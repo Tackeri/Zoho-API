@@ -8,7 +8,9 @@ from Authentication import tokens
 # Define URL
 # The key that appears on the Mockaroo URL at the end must match the API key of the user # noqa
 url = 'https://www.zohoapis.com/crm/v2/tasks'
-urlMockaroo = 'https://my.api.mockaroo.com/zcrmLCADT.json?key=58fd1ee0'
+
+# NOTE: User must add the URL of the API they created in Mockaroo
+urlMockaroo = ''
 
 # Reads the Mockaroo data and loads it into the file
 data = urllib.request.urlopen(urlMockaroo).read()
