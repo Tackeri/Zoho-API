@@ -22,13 +22,9 @@ headers = {'Authorization': token}
 # Build Body
 # NOTE: The mockData[x] must be iterated through. Currently working on this.
 body = {
-    # "data": [
-    #    mockData[0]
-    # ]
-
-    data = []
-    for dict in mockData
-        data.append(dict) 
+    "data": [
+       mockData[0]
+    ]
 }
 
 # Print Input Data
