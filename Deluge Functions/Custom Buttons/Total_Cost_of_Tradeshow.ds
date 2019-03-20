@@ -1,6 +1,6 @@
 // Author: georgeotj
 // Description: This deluge script will pull entries from the Expenses modules and when attributed to a campaign, will add up the expenses to the "Actual Cost" field in the Campaign entry.
-// Requirements: "Lead Name" Lookup on Quotes Layout
+// Requirements: "Trade Show Expenses" module
 // Arguments: expid = Trade Show Expense id, campid = Campaign id
 
 // Declare variables
