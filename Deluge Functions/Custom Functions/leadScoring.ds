@@ -1,0 +1,70 @@
+This folder will contain custom functions for Zoho CRM. These functions will have the following format
+
+// Author: georgeotj
+// Description: To rate leads, we want to follow certain criteria like having a phone numberm, email, and more information.
+// Requirements: Leads module with a custom text field called, "Lead Rating"
+// Arguments: leadId:Lead Id, phone:Phone, email:Email, title:Title, website:Website, industry:Industry, scoreField, Lead Rating
+
+// Declare variables
+
+// Code
+//Verify that if the fields are null (different from isEmpty())
+if(phone.isNull()) {
+	phone = "";
+}
+if(email.isNull()) {
+	email = "";
+}
+if(title.isNull()) {
+	title = "";
+}
+if(website.isNull()) {
+	website = "";
+}
+if(industry.isNull()){
+	industry = "";
+}
+
+//Start point counting
+point = 0;
+
+if(phone.length() >= 9) {
+	point += 2;
+}
+if(!(email.contains("gmail") || email.contains("yahoo") || email.contains("outlook") || email == "")) {
+	point += 2;
+}
+if(title.contains("CEO") || title.contains("manager") || title.contains("dir") || title.contains("VP")) {
+	point += 2;
+}
+if(!website.isBlank()) {
+	point += 2;
+}
+if(industry.contains("ERP")) {
+	point += 2;
+}
+
+//Calculating the points. 
+if(point >= 9) {
+	score = "*****";
+}
+else if(point >= 7) {
+	score = "****";
+}
+else if(point >= 5) {
+	score = "***";
+}
+else if(point >= 3) {
+	score = "**";
+}
+else if(point >= 1) {
+	score = "*";
+}
+else {
+	score = "";
+}
+
+info point;
+info score;
+updateMap = {scoreField:score};
+updatedResponse = zoho.crm.updateRecord("Leads",leadId,updateMap);
