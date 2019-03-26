@@ -24,6 +24,9 @@ if(website.isNull()) {
 if(industry.isNull()){
 	industry = "";
 }
+if(scoreField.isNull() || scoreField.isEmpty()) {
+	scoreField = "";
+}
 
 //Start point counting
 point = 0;
