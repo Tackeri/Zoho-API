@@ -1,6 +1,6 @@
 // Author: georgeotj
 // Description: This deluge script will auomatically calculate the ROI of a Campaign when comparing Actual Revenue and Actual Cost
-// Requirements: "Lead Name" Lookup on Quotes Layout
+// Requirements: Revenue Information for 
 // Arguments: campid = Campaign id, dealid = Deal Id
 
 // Declare variables
@@ -8,7 +8,6 @@ deal = dealid;
 thisCampaign = zoho.crm.getRecordById("Campaigns",campid);
 relatedDeals = zoho.crm.getRelatedRecords("Deals","Campaigns",campid);
 total = 0.0;
-
 
 // Look through the Deals related list in the Campaigns module and if there's a "Closed Won" deal, add it up to the Actual Revenue 
 for each  deal in relatedDeals
