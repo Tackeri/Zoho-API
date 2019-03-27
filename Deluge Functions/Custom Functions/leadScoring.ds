@@ -2,10 +2,11 @@ This folder will contain custom functions for Zoho CRM. These functions will hav
 
 // Author: georgeotj
 // Description: To rate leads, we want to follow certain criteria like having a phone numberm, email, and more information.
-// Requirements: Leads module with a custom text field called, "Lead Rating"
-// Arguments: leadId:Lead Id, phone:Phone, email:Email, title:Title, website:Website, industry:Industry, scoreField, Lead Rating
+// Requirements: Leads module with a custom text field called, "LeadScore"
+// Arguments: leadId:Lead Id, phone:Phone, email:Email, title:Title, website:Website, industry:Industry, scoreField:LeadScore
 
 // Declare variables
+
 
 // Code
 //Verify that if the fields are null (different from isEmpty())
@@ -28,7 +29,7 @@ if(scoreField.isNull() || scoreField.isEmpty()) {
 	scoreField = "";
 }
 
-//Start point counting
+//Start counting up the points
 point = 0;
 
 if(phone.length() >= 9) {
@@ -66,8 +67,4 @@ else if(point >= 1) {
 else {
 	score = "";
 }
-
-info point;
-info score;
-updateMap = {scoreField:score};
-updatedResponse = zoho.crm.updateRecord("Leads",leadId,updateMap);
+updatedResponse = zoho.crm.updateRecord("Leads",leadId,{"LeadScore":score});
