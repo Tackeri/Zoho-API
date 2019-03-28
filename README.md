@@ -2,7 +2,7 @@
 
 ### Author:
 
-    Scott Minter
+    Scott Minter/Jorge Huerta
 
 ### Project Outline and Goals:
 
