@@ -1,0 +1,26 @@
+// Author: georgeotj
+// Description: Automatically updates the address of child contacts whenever the address information for the Account is updated.
+// Requirements: N/A
+// Arguments: accID = Account Id
+
+// Declare variables
+rec = zoho.crm.getRecordById("Accounts",accId);
+resp = zoho.crm.getRelatedRecords("Contacts","Accounts",accId);
+
+// Code
+for each  ele in resp
+{
+	mp = Map();
+	mp.put("Mailing_Street",rec.get("Billing_Street"));
+	mp.put("Mailing_City",rec.get("Billing_City"));
+	mp.put("Mailing_State",rec.get("Billing_State"));
+	mp.put("Mailing_Zip",rec.get("Billing_Code"));
+	mp.put("Mailing_Country",rec.get("Billing_Country"));
+	mp.put("Other_Street",rec.get("Shipping_Street"));
+	mp.put("Other_City",rec.get("Shipping_City"));
+	mp.put("Other_State",rec.get("Shipping_State"));
+	mp.put("Other_Zip",rec.get("Shipping_Code"));
+	mp.put("Other_Country",rec.get("Shipping_Country"));
+	contactId = ele.get("id");
+	updateResp = zoho.crm.updateRecord("Contacts",ele.get("id"),mp);
+}
