@@ -17,17 +17,12 @@ import requests, json, os
 module = 'Contacts'
 
 # Call the API and Print the Response
-
-
 def getRecords(module):
     url = 'https://www.zohoapis.com/crm/v2/settings/fields?module={module_id}'
-
-
     url = url.replace("{module_id}", module)
     headers = {
         'Authorization': tokens.getAccess(), 
         }
-
     print('')
     print(url)
     print('')

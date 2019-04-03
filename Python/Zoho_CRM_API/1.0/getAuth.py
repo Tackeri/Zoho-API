@@ -12,7 +12,6 @@ def main():
     pw = 'uDBsQRjK9epH'
     display_name = 'MANA - 1.0 Python Testing'
 
-
     url = url.replace("{Scope}", scope)
     url = url.replace("{UsernameEmailID}", email)
     url = url.replace("{Password}", pw)
@@ -32,5 +31,3 @@ def main():
     print ('')
 
 main()
-
-
