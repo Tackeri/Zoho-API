@@ -1,0 +1,15 @@
+// Author: goergeotj
+// Description: To keep track of history of the changes to a specific field, we must preserve the original value.
+// Requirements: Associated Mod8ule is Deal also, 2 Custom Fields, in this case "Expected_Close_Date" and "Previous_Close_Date" within the Deals module
+// Arguments: dealId = Deal Id
+
+// Declare variables
+deal = zoho.crm.getRecordById("Deals",dealId);
+currentClosing = deal.get("Expected_Close_Date");
+previousClosing = deal.get("Previous_Close_Date");
+
+// Code
+mp = Map();
+mp.put("Previous_Close_Date",deal.get("Expected_Close_Date"));
+updateResp = zoho.crm.updateRecord("Deals",dealId,mp);
+info updateResp;
