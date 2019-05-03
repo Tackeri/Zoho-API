@@ -4,11 +4,16 @@
 // Arguments: dealId Deal Id
 
 // Declare variables
+related = zoho.crm.getRelatedRecords("CF_Updated_History","Deals",dealId);
 deal = zoho.crm.getRecordById("Deals",dealId);
 currentClose = deal.get("Expected_Close_Date");
 previousClose = deal.get("Previous_Close_Date");
 dealName = deal.get("Deal_Name");
 lastModified = deal.get("Modified_By");
+now = zoho.currenttime.toDatetime();
+lastEntry = related.get(0);
+lastEntryTime = lastEntry.get("Created_Time");
+timeDif = days360(lastEntryTime,today);
 
 // Code
 if(currentClose != previousClose)
@@ -16,13 +21,14 @@ if(currentClose != previousClose)
 	mp = Map();
 	mp.put("Updated_To",currentClose);
 	mp.put("Updated_From",previousClose);
-	mp.put("Client_Name",dealId);
+	mp.put("Deal_Associated",dealId);
 	mp.put("Name",dealName);
 	mp.put("Owner",lastModified);
+	mp.put("Days_Between_Changes",timeDif.toString());
 	createRec = zoho.crm.createRecord("Deal_CF_History",mp);
-	info createRec;
+	// Update fields in Deals Module
+	updatePrevMap = Map();
+	updatePrevMap.put("Previous_Close_Date",currentClose);
+	updatePrevious = zoho.crm.updateRecord("Deals",dealId,updatePrevMap);
+	info updatePrevious;
 }
-updatePrevMap = Map();
-updatePrevMap.put("Previous_Close_Date",currentClose);
-updatePrevious = zoho.crm.updateRecord("Deals",dealId,updatePrevMap);
-info updatePrevious;
