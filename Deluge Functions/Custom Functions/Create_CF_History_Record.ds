@@ -10,12 +10,19 @@ currentClose = deal.get("Expected_Close_Date");
 previousClose = deal.get("Previous_Close_Date");
 dealName = deal.get("Deal_Name");
 lastModified = deal.get("Modified_By");
-now = zoho.currenttime.toDatetime();
-lastEntry = related.get(0);
-lastEntryTime = lastEntry.get("Created_Time");
-timeDif = days360(lastEntryTime,today);
 
-// Code
+//Code
+// Try to create the lastEntry variable but if there's nothing available set it to today.
+try 
+{
+	lastEntry = related.get(0).get("Created_Time");
+}
+ catch (e)
+{	lastEntry = today.toDate();
+}
+timeDif = days360(lastEntry,today);
+
+//Create the record
 if(currentClose != previousClose)
 {
 	mp = Map();
@@ -30,5 +37,4 @@ if(currentClose != previousClose)
 	updatePrevMap = Map();
 	updatePrevMap.put("Previous_Close_Date",currentClose);
 	updatePrevious = zoho.crm.updateRecord("Deals",dealId,updatePrevMap);
-	info updatePrevious;
 }
