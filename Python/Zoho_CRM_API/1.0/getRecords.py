@@ -10,7 +10,6 @@ __author__ = 'MinterS'
     # purchase_orders, invoices, custom, notes, 
     # approvals, dashboards, search and activities.
 
-
 import requests, json, xml.dom.minidom
 import credentials
 

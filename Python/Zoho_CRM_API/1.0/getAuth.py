@@ -1,8 +1,6 @@
 __author__ = "MinterS"
 
-
 import requests, json
-
 
 def main():
     # Define Parameters
