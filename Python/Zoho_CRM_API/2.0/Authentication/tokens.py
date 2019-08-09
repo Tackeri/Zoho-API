@@ -2,8 +2,6 @@ __author__ = 'MinterS'
 
 import os
 
-
-
 # Token Files
 THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
 grantTokenFile = os.path.join(THIS_FOLDER, 'grant_token.txt')
