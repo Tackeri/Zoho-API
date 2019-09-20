@@ -4,7 +4,8 @@ from Authentication import tokens
 
 # Necessary URLs
 url ='https://www.zohoapis.com/crm/v2/{module}/upsert'
-urlMockaroo =''
+urlMockaroo ='https://my.api.mockaroo.com/zohopresalesmegaschema.json?key=58fd1ee0'
+
 
 def upsertRecords(url, headers, body, getAuthRefresh):
     # Print Input Data
@@ -41,21 +42,19 @@ headers = {'Authorization': token}
 # NOTE: The mockData[x] must be iterated through, still haven't been able to figure it out.
 body = {
     "data": [
-        mockData[0]
+        mockData[0], mockData[1], mockData[2], mockData[3]
     ]
 }
 
-# Upsert to the Properties module
 url = url.replace('{module}', 'Properties')
 upsertRecords(url, headers, body, getAuthRefresh)
 url = url.replace('Properties', '{module}')
 
-# Upsert to the Accounts module
+# #Add the layout number to the
 url = url.replace('{module}', 'Accounts')
 upsertRecords(url, headers, body, getAuthRefresh)
 url = url.replace('Accounts', '{module}')
 
-# Upsert to the Contacts module
 url = url.replace('{module}', 'Contacts')
 upsertRecords(url, headers, body, getAuthRefresh)
 url = url.replace('Contacts', '{module}')
