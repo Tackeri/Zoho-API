@@ -4,7 +4,7 @@ from Authentication import tokens
 
 # Necessary URLs
 url ='https://www.zohoapis.com/crm/v2/{module}/upsert'
-urlMockaroo ='https://my.api.mockaroo.com/zohopresalesmegaschema.json?key=58fd1ee0'
+urlMockaroo =''
 
 
 def upsertRecords(url, headers, body, getAuthRefresh):
