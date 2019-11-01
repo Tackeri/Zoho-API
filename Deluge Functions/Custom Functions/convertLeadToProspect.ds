@@ -1,0 +1,21 @@
+//Arguments: leadId = Lead ID
+rec = zoho.crm.getRecordById("Leads1",leadId);
+mp = Map();
+// Get data from the Prospect record and make a Lead record
+mp.put("First_Name",rec.get("First_Name"));
+mp.put("Last_Name",rec.get("Last_Name"));
+mp.put("Email",rec.get("Email"));
+if(rec.get("Phone_Type") == "Mobile")
+{
+	mp.put("Mobile",rec.get("Phone"));
+}
+else
+{
+	mp.put("Phone",rec.get("Phone"));
+}
+createProspect = zoho.crm.createRecord("Leads",mp);
+//  Delete Prospect record
+deleteRecordMap = Map();
+deleteRecordMap = {"module":"Leads1","id":leadId};
+deleteResp = zoho.crm.invokeConnector("crm.delete",deleteRecordMap);
+return rec;
