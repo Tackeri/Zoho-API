@@ -15,7 +15,7 @@ else
 }
 createProspect = zoho.crm.createRecord("Leads",mp);
 //  Delete Prospect record
-deleteRecordMap = Map();
-deleteRecordMap = {"module":"Leads1","id":leadId};
-deleteResp = zoho.crm.invokeConnector("crm.delete",deleteRecordMap);
+//deleteRecordMap = Map();
+//deleteRecordMap = {"module":"Leads1","id":leadId};
+//deleteResp = zoho.crm.invokeConnector("crm.delete",deleteRecordMap);
 return rec;
