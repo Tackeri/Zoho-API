@@ -22,9 +22,15 @@ if(hasPaid == true)
 	mp.put("Total_Wattage",totalWattage.toString());
 	createClient = zoho.crm.createRecord("Clients",mp);
 	result = "Success!";
+	
+	//Delete Record
+	//deleteRecordMap = Map();
+	//deleteRecordMap = {"module":"{module}","id":prospectId};
+	//deleteResp = zoho.crm.invokeConnector("crm.delete",deleteRecordMap);
 }
 else
 {
 	result = "ERROR: Prospect has not paid or \"Has Paid\" field hasn't been updated. Please verify these requirements have been met.";
 }
+
 return result;
