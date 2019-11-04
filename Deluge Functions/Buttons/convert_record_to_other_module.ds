@@ -1,0 +1,30 @@
+rec = zoho.crm.getRecordById("Leads",prospectId);
+hasPaid = rec.get("Has_Paid");
+name = rec.get("First_Name") + " " + rec.get("Last_Name");
+totalWattage = rec.get("Wattage_Per_Panel") * rec.get("Number_of_Panels");
+mp = Map();
+if(hasPaid == true)
+{
+	mp.put("Name",name);
+	mp.put("Email",rec.get("Email"));
+	mp.put("First_Name",rec.get("First_Name"));
+	mp.put("Last_Name",rec.get("Last_Name"));
+	mp.put("Phone",rec.get("Phone"));
+	mp.put("Mobile",rec.get("Mobile"));
+	mp.put("Email",rec.get("Email"));
+	mp.put("Installation_Address",rec.get("Installation_Address"));
+	mp.put("Installation_City",rec.get("Installation_City"));
+	mp.put("Installation_State",rec.get("Installation_State"));
+	mp.put("Installation_Zip_Code",rec.get("Installation_Zip_Code"));
+	mp.put("Number_of_Panels",rec.get("Number_of_Panels"));
+	mp.put("Wattage_Per_Panel",rec.get("Wattage_Per_Panel"));
+	mp.put("Installation_Zip_Code",rec.get("Installation_Zip_Code"));
+	mp.put("Total_Wattage",totalWattage.toString());
+	createClient = zoho.crm.createRecord("Clients",mp);
+	result = "Success!";
+}
+else
+{
+	result = "ERROR: Prospect has not paid or \"Has Paid\" field hasn't been updated. Please verify these requirements have been met.";
+}
+return result;
