@@ -1,10 +1,24 @@
-rec = zoho.crm.getRecordById("Leads",prospectId);
-hasPaid = rec.get("Has_Paid");
+//Anything within curly brackets will need to be replaced to the correct module, field, or variable.
+
+// This variable will be important to get the specific fields within the record.
+rec = zoho.crm.getRecordById({module},{argumentId});
+
+// These variables are used to simplify getting field information 
 name = rec.get("First_Name") + " " + rec.get("Last_Name");
 totalWattage = rec.get("Wattage_Per_Panel") * rec.get("Number_of_Panels");
+
+// A temporary map is created to store the data from the original record.
 mp = Map();
-if(hasPaid == true)
+
+//This if-statement verifies that the user has paid using a field. If the field is selected, it will return true and will
+//allow you to convert the record. However, if the field is not selected it will give you an error.
+if(rec.get("Has_Paid") == true)
 {
+	// These statements follow the format mp.put({fieldInNewModule}, {fieldInOriginalModule});
+	// For example in the instructions below, the statement will put the value name from line 7
+	// into the keyword "Name". These keys are stored into the map and will then be used to create
+	// the record in line 37.
+	
 	mp.put("Name",name);
 	mp.put("Email",rec.get("Email"));
 	mp.put("First_Name",rec.get("First_Name"));
@@ -23,14 +37,15 @@ if(hasPaid == true)
 	createClient = zoho.crm.createRecord("Clients",mp);
 	result = "Success!";
 	
+	// If you would like to delete the record after it is converted you can uncomment out lines 43-45 by
+	// removing the double forward slash.
 	//Delete Record
 	//deleteRecordMap = Map();
-	//deleteRecordMap = {"module":"{module}","id":prospectId};
+	//deleteRecordMap = {"module":"{module}","id":argumentId};
 	//deleteResp = zoho.crm.invokeConnector("crm.delete",deleteRecordMap);
 }
 else
 {
 	result = "ERROR: Prospect has not paid or \"Has Paid\" field hasn't been updated. Please verify these requirements have been met.";
 }
-
 return result;
