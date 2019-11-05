@@ -10,8 +10,9 @@ totalWattage = rec.get("Wattage_Per_Panel") * rec.get("Number_of_Panels");
 // A temporary map is created to store the data from the original record.
 mp = Map();
 
-//This if-statement verifies that the user has paid using a field. If the field is selected, it will return true and will
-//allow you to convert the record. However, if the field is not selected it will give you an error.
+// This if-statement verifies that the user has paid using a field. If the field is selected, it will return true and will
+// allow you to convert the record. However, if the field is not selected it will give you an error.
+
 if(rec.get("Has_Paid") == true)
 {
 	// These statements follow the format mp.put({fieldInNewModule}, {fieldInOriginalModule});
