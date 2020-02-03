@@ -1,0 +1,25 @@
+sOrderObj = zoho.crm.getRecordById("Sales_Orders", id);
+crmSOProductLst = sOrderObj.get("Product_Details");
+crmContactId = ifnull(sOrderObj.get("Contact_Name"),{"id", null}).get("id");
+crmAccountId = ifnull(sOrderObj.get("Account_Name"),{"id", null}).get("id");
+prodList=List();
+for each product in crmSOProductLst
+{  
+  pId = product.get("product").get("id");
+  quantity = product.get("quantity");
+  listPrice = product.get("list_price").toDecimal();
+  zbPId = zoho.books.getRecords("Items", "668072369","zcrm_product_id="+pId).get("items").get(0).get("item_id");
+  prodmp = map();
+  prodmp.put("item_id",zbPId); 
+  prodmp.put("rate",listPrice); 
+  prodmp.put("quantity",quantity); 
+  prodList.add(prodmp); 
+}
+customerid = zoho.books.getRecords("Contacts", "668072369","zcrm_account_id="+crmAccountId).get("contacts").get(0).get("contact_id");
+mp = map();
+mp.put("customer_id",customerid);
+mp.put("line_items",prodList);
+mp.put("date",today);
+mp.put("custom_fields", [{"label": "Third Party Cleaned", "value": sOrderObj.get(“Cleaned_By_Joe”)},{"label":"Con Note No", "value": sOrderObj.get(“Consignment_Note_Number”)},{“label":"DATE INVOICE SENT", "value": sOrderObj.get(“DATE_INVOICE_SENT”)},{“label":"Delivery Terms", "value": sOrderObj.get(“Delivery_Terms”)},{“label":"Shipment Date", "value": sOrderObj.get(“Ready_For_Despatch_Date”)},{“label":"Freight Company", "value": sOrderObj.get(“Freight_Company_Out”)},{“label":"Freight Company", "value": sOrderObj.get(“Freight_Company_Out”)},{“label":"Payment Received Date", "value": sOrderObj.get(“Payment_Received_Date”)},{“label":"PO Received Date", "value": sOrderObj.get(“PO_Received_Date”)},{“label":"Sales Order#", "value": sOrderObj.get(“Project_Quote_Number”)},{“label":"PO Number", "value": sOrderObj.get(“Purchase_Order”)},{“label":"Quote Category", "value": sOrderObj.get(“Quote_Category”)},{“label":"Sales Order Type", "value": sOrderObj.get(“Sales_Order_Type”)},{“label":"Status", "value": sOrderObj.get(“Status”)},{“label":"Subject", "value": sOrderObj.get(“Subject”)}]);
+createSoInZBRes = zoho.books.createRecord("SalesOrders","668072369", mp);
+info createSoInZBRes;
