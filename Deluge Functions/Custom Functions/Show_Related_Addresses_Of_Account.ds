@@ -1,0 +1,15 @@
+// Author: georgeotj
+// Description: When your CRM has a lot of customers with different shipping addresses, managing them could become a pain. Using this, a user can create a Zoho Creator application that will allow the user to modify a Creator form that would easily change the shipping address depending on which Account the user selects.
+// Requirements: Several modifications are required for this script to run correctly, this includes creating a new module and related list.
+// Arguments: N/A
+
+// Declare variables
+accountId = input.Account_Name.toLong();
+relRecs = zoho.crm.getRelatedRecords("Associated_Shipping_Location","Accounts",accountId);
+
+// Code
+clear Shipping_Address;
+for each  rec in relRecs
+{
+	input.Shipping_Address:ui.add(rec.get("Name"));
+}
