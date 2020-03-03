@@ -1,0 +1,24 @@
+This folder will contain custom functions for Zoho CRM. These functions will have the following format
+
+// Author: georgeotj
+// Description: This function will track total revenue by adding up all the deals
+// Requirements: This will require a custom field in the "Accounts" module, it will be called Total Revenue.
+// Arguments: accountId:Account Id, Total_Revenue:Total Revenue
+
+// Declare variables
+accountID1 = accountId.toString();
+resp = zoho.crm.getRelatedRecords("Deals","Accounts",accountId);
+total = 0.0;
+
+// Code
+for each  rec in resp
+{
+	stage = rec.get("Stage").toLowerCase();
+	if(stage.contains("won"))
+	{
+		total = total + rec.get("Amount").toDecimal();
+		info total;
+		updateResp = zoho.crm.updateRecord("Accounts",accountId,{"Total_Revenue":total});
+		info updateResp;
+	}
+}

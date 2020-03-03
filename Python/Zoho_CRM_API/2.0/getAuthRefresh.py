@@ -9,7 +9,6 @@ from Resources import statusCodes
 import requests
 import json
 
-
 def getAuthRefresh():
     # Collect Refresh Token and Build URL
     url = 'https://accounts.zoho.com/oauth/v2/token?refresh_token={refresh_token}&client_id={client_id}&client_secret={client_secret}&grant_type=refresh_token'
@@ -49,6 +48,5 @@ def getAuthRefresh():
         print('Access:', access)
         # Write Token to File
         tokens.saveAccess(access)
-
 
 token = getAuthRefresh()

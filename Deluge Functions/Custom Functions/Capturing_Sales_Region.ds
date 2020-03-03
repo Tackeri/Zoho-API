@@ -1,0 +1,29 @@
+This folder will contain custom functions for Zoho CRM. These functions will have the following format
+
+// Author: georgeotj
+// Description: Based on a Lead's country, they will be marked to a specific region in their profile.
+// Requirements: Custom field called "Region" in the Leads module inside the Address Information
+// Arguments: leadId: Lead Id, country:  Country, fieldToUpdate: Region
+
+// Declare variables
+countryList1 = {"united kingdom","uk","great britain","gb"};
+countryList2 = {"united states","usa","us"};
+countryList3 = {"argentina","bolivia","brazil","chile","colombia","ecuadar","guiana","guyana","mexico","paraguay"};
+countryList4 = {"France","Belgium","Germany","Netherlands","Ireland","Israel","South Africa","Italy","United Arab Emirates","Spain"};
+countryList5 = {"Singapore","China","Japan","Thailand","Vietnam","Malaysia","Mauritius","Hongkong","Maldives","Pakistan"};
+countryMap = {"UK":countryList1,"US":countryList2,"SAMERICA":countryList3,"EMEA":countryList4,"APAC":countryList5};
+
+countryMapkKey = countryMap.keys();
+mailingRegion = "";
+
+// Code
+for each  region in countryMapkKey
+{
+	countryListValue = countryMap.get(region);
+	if(countryListValue.contains(country.toLowerCase()))
+	{
+		mailingRegion = region;
+	}
+}
+updateMap = {fieldToUpdate:mailingRegion};
+updatedResponse = zoho.crm.updateRecord("Leads",leadId,updateMap);

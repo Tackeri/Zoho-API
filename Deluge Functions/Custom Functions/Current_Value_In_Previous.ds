@@ -1,0 +1,15 @@
+// Author: georgeotj
+// Description: To be able to keep a history of status changes, we must ensure that we still keep the previous choice. This will work with a Workflow that will only run when new deals are created. 
+// Requirements: In the deals module, you must create 2 Custom Fields that will store the current and the previouas status'.
+// Arguments: dealId = Deal Id
+
+// Declare variables
+deal = zoho.crm.getRecordById("Deals",dealId);
+
+//Code
+currentClosing = deal.get("Expected_Close_Date");
+previousClosing = deal.get("Previous_Close_Date");
+mp = Map();
+mp.put("Previous_Close_Date",deal.get("Expected_Close_Date"));
+updateResp = zoho.crm.updateRecord("Deals",dealId,mp);
+info updateResp;

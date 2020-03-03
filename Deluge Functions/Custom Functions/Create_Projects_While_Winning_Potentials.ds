@@ -1,0 +1,22 @@
+This folder will contain custom functions for Zoho CRM. These functions will have the following format
+
+// Author: Zach Zivnuska
+// Description: This function will automatically create a new Project whenever a deal is created.
+// Requirements: Must have an active Zoho Projects account
+// Arguments: N/A
+// Notes: 	//In order to get your URL, you must replace the [portalId] with your organization's
+            //To get your portalId, follow the instructions below
+	          //Go to Zoho Projects --> go to Setup --> Under 'Integration' click "Developer Space" in the page that opens, 
+            //click on "Service Hooks" --> look at the URL's and you will see your organization's portalId.
+
+// Declare variables
+m = {"name":name};
+
+// Code
+response = invokeurl
+[
+  url :"https://projectsapi.zoho.com/restapi/portal/[portalId]/projects/"
+	type :POST
+	parameters:m
+	connection:"zoho264"
+];

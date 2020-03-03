@@ -1,0 +1,19 @@
+// Author: georgeotj
+// Description: This deluge script will pull entries from the Expenses modules and when attributed to a campaign, will add up the expenses to the "Actual Cost" field in the Campaign entry.
+// Requirements: "Trade Show Expenses" module
+// Arguments: expid = Trade Show Expense id, campid = Campaign id
+
+// Declare variables
+relexp = zoho.crm.getRecordById("Trade_Show_Expenses",expid);
+newrel = zoho.crm.getRelatedRecords("Expenses","Campaigns",campid);
+total = 0.0;
+
+//Total up all expenses related to the Campaign
+for each  rec in newrel
+{
+	//iterate and refresh total in case other expense amounts change at later date
+	total = total + if(rec.get("Amount") == "",0.0,rec.get("Amount").toDecimal());
+}
+
+//Update Campaign with new values
+update = zoho.crm.updateRecord("Campaigns",campid,{"Actual_Cost":total});

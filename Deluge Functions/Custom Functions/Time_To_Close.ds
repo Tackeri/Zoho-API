@@ -1,0 +1,23 @@
+This folder will contain custom functions for Zoho CRM. These functions will have the following format
+
+// Author: Zach Zivnuska/georgeotj
+// Description: This function will calculate how many hours it took to close.
+// Requirements: N/A
+// Arguments: leadId:Lead Id
+
+// Declare variables
+related = zoho.crm.getRelatedRecords("Activities_History","Leads",leadId);
+lead = zoho.crm.getRecordById("Leads",leadId);
+
+// Code
+for each  rec in related
+{
+	ctn = rec.get("Closed_Time");
+}
+created = lead.get("Created_Time");
+closedTime = ctn.toDateTime("yyyy-MM-dd'T'HH:mm:ss");
+openedTime = created.toDateTime("yyyy-MM-dd'T'HH:mm:ss");
+tot = (closedTime - openedTime) / (1000 * 3600);
+info openedTime;
+info closedTime;
+info tot;

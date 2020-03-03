@@ -1,0 +1,23 @@
+
+serverList = zoho.crm.getRelatedRecords("Servers13","Contacts",contid);
+listcount = 1;
+counter = {0,1,2,3,4,5,6,7,8,9,10};
+listSize = serverList.size();
+for each  x in counter
+{
+	count = x + 1;
+	if(x < listSize)
+	{
+		server = serverList.get(x);
+		serverInfo = server.get("Servers");
+		serverid = serverInfo.get("id");
+		url = "https://crm.zoho.com/crm/org672017945/tab/CustomModule1/" + serverid;
+		update = zoho.crm.updateRecord("Contacts",contid,{"Server" + count:url});
+		listcount = listcount + 1;
+	}
+	else
+	{
+		update = zoho.crm.updateRecord("Contacts",contid,{"Server" + count:""});
+		info "removed";
+	}
+}

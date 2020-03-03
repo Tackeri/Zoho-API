@@ -1,0 +1,19 @@
+// Author: georgeotj
+// Description: There are many sources for lead generation within Zoho CRM. When you validate the leads during the nurturing process, a few leads will qualify as Junk. Even if you mark a lead as junk, the tasks associated with it will remain open. This function allows you to close tasks associated with junk leads.
+// Requirements: No changes necessary for CRM.
+// Arguments: LeadID: Lead Id, status: Lead Status
+
+// Declare variables
+
+// Code
+if(leadStatus.contains("Junk"))
+{
+	relatedTask = zoho.crm.getRelatedRecords("Tasks","Leads",leadId);
+	for each  task in relatedTask
+	{
+		mapVariable = Map();
+		mapVariable.put("Status","Completed");
+		taskID = task.get("id");
+		updateTask = zoho.crm.updateRecord("Tasks",taskID,mapVariable);
+	}
+}

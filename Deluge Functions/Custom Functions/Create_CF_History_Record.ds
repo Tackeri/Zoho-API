@@ -1,0 +1,40 @@
+// Author: georgeotj
+// Description: This script will allow you to create a new record to keep a history of the changes made to a specific custom field
+// Requirements: Associated Module is Dealsd, Custom Module with fields Name (Single Line), Owner (Lookup), Updated From (Single Line), Updated To (Single line), Deal Associated (Lookup, Deals)
+// Arguments: dealId Deal Id
+
+// Declare variables
+related = zoho.crm.getRelatedRecords("CF_Updated_History","Deals",dealId);
+deal = zoho.crm.getRecordById("Deals",dealId);
+currentClose = deal.get("Expected_Close_Date");
+previousClose = deal.get("Previous_Close_Date");
+dealName = deal.get("Deal_Name");
+lastModified = deal.get("Modified_By");
+
+//Code
+// Try to create the lastEntry variable but if there's nothing available set it to today.
+try 
+{
+	lastEntry = related.get(0).get("Created_Time");
+}
+ catch (e)
+{	lastEntry = today.toDate();
+}
+timeDif = days360(lastEntry,today);
+
+//Create the record
+if(currentClose != previousClose)
+{
+	mp = Map();
+	mp.put("Updated_To",currentClose);
+	mp.put("Updated_From",previousClose);
+	mp.put("Deal_Associated",dealId);
+	mp.put("Name",dealName);
+	mp.put("Owner",lastModified);
+	mp.put("Days_Between_Changes",timeDif.toString());
+	createRec = zoho.crm.createRecord("Deal_CF_History",mp);
+	// Update fields in Deals Module
+	updatePrevMap = Map();
+	updatePrevMap.put("Previous_Close_Date",currentClose);
+	updatePrevious = zoho.crm.updateRecord("Deals",dealId,updatePrevMap);
+}
